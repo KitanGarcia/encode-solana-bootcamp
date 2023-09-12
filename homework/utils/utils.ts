@@ -18,7 +18,10 @@ import {
  * Establish a connection to the cluster
  */
 export async function establishConnection(): Promise<Connection> {
-  const rpcUrl = await getRpcUrl();
+  console.log("INSIDE CONNECTION");
+  //const rpcUrl = await getRpcUrl();
+  const rpcUrl = "http://127.0.0.1:8899";
+  console.log("RPC URL", rpcUrl);
   let connection = new Connection(rpcUrl, "confirmed");
   const version = await connection.getVersion();
   console.log("Connection to cluster established:", rpcUrl, version);
@@ -100,13 +103,20 @@ export async function establishEnoughSol(
  */
 async function getConfig(): Promise<any> {
   // Path to Solana CLI config file
-  const CONFIG_FILE_PATH = path.resolve(
-    os.homedir(),
-    ".config",
-    "solana",
-    "cli",
-    "config.yml"
-  );
+  let CONFIG_FILE_PATH = process.env.CONFIG_FILE_PATH;
+  console.log("file path:", CONFIG_FILE_PATH);
+  console.log("file path:", CONFIG_FILE_PATH);
+  if (CONFIG_FILE_PATH) {
+    CONFIG_FILE_PATH = path.resolve(CONFIG_FILE_PATH);
+  } else {
+    CONFIG_FILE_PATH = path.resolve(
+      os.homedir(),
+      ".config",
+      "solana",
+      "cli",
+      "config.yml"
+    );
+  }
 
   console.log("\nlocal system client config location: ", CONFIG_FILE_PATH);
 
