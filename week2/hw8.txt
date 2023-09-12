@@ -1,0 +1,45 @@
+1. How in practice can the DEX design differ between Solana and Ethereum?
+Solana can do everything ETH can, not vice versa. Limit order book?
+DY/DX on ETH - matching on ETH?
+
+ETH has slower txn speed and more cost
+ETH has entire chain state available.
+ETH has no need to create token accounts
+ETH easier to build upon.
+
+2. What features would you look for when selecting a Solana wallet?
+    NFTs, balance and list of each token in wallet, other pubkeys to choose from, hardware wallet compatibility, tokens rendering instead of having to add them manually.
+
+  1. Does any wallet have all these features ?
+  2. Which wallet have you chosen?
+    Phantom
+
+3. How is the token functionality design process different on Solana?
+
+4. Which Solana DeFi project has the most value locked?
+  Marinade Finance: $103,000,000
+
+5. What difference do low fees on a blockchain make to trading strategies?
+  You can place more trades.
+
+
+
+1. Follow the instructions from the lesson and use the spl-token-cli to create
+  a) A fungible token with a supply of 10,000:
+    spl-token create-token
+    spl-token create-account <TOKEN_ID>
+    spl-token mint <TOKEN_ID> 10000
+
+  b) An NFT:
+    spl-token create-token --decimals 0
+    spl-token create-account <TOKEN_ID>
+    spl-token mint <TOKEN_ID> 1 <ACCOUNT_ID>
+    spl-token authorize <TOKEN_ID> mint --disable
+
+2. Try sending these tokens to others in your team , and use the command line to find details about the tokens.
+  Use --fund-recipient if recipient's associated token account does not exist
+  1. Fungible Token
+    spl-token transfer <TOKEN_ID> 2000 <DESTINATION_ADDRESS> --fund-recipient
+
+  2. NFT
+    spl-token transfer <TOKEN_ID> 1 <DESTINATION_ADDRESS> --fund-recipient
