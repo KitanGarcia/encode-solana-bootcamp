@@ -46,6 +46,7 @@ async function main() {
     connection,
     payer
   );
+  console.log("Start balance:", startBalanceLamport);
 
   // Check if binary exists
   let programID = await checkBinaryExists(PROGRAM_KEYPAIR_PATH);
@@ -58,6 +59,7 @@ async function main() {
       connection,
       payer
     );
+    console.log("End balance:", endBalanceLamport);
 
     console.log(
       `\nIt cost:\n\t${startBalanceSol - endBalanceSol} SOL\n\t${
@@ -82,8 +84,9 @@ export async function deployGreetAccount(
   console.log("Program ID account: ", programId.toBase58());
 
   const GREETING_SEED = "hello_this_can_be_anything";
+  // const badKeypair = Keypair.generate();
   let greetedPubkey = await PublicKey.createWithSeed(
-    payer.publicKey,
+    payer.publicKey, //badKeypair.publicKey,
     GREETING_SEED,
     programId
   );
