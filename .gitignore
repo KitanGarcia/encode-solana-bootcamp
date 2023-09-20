@@ -2,4 +2,4 @@ test-ledger
 .DS_Store
 node_modules
 target
-program_logs
+program-logs
