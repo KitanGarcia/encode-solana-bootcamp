@@ -1,0 +1,12 @@
+Streaming transaction logs mentioning GovAH137uoY4ifyfTNQjesKNJKo55tMF435dBfwZ22DG. Confirmed commitment
+Transaction executed in slot 3:
+  Signature: 3o8HDg75tDqP2rwoDcWWaNgpUVbLMnRpNFL4gC3W832V2tCaVo4Z9UTXwT2FgBm9oHYpUAatLgrAeNBH6uuT1yVi
+  Status: Ok
+  Log Messages:
+    Program GovAH137uoY4ifyfTNQjesKNJKo55tMF435dBfwZ22DG invoke [1]
+    Program log: Instruction: Initialize
+    Program 11111111111111111111111111111111 invoke [2]
+    Program 11111111111111111111111111111111 success
+    Program log: 100
+    Program GovAH137uoY4ifyfTNQjesKNJKo55tMF435dBfwZ22DG consumed 7378 of 200000 compute units
+    Program GovAH137uoY4ifyfTNQjesKNJKo55tMF435dBfwZ22DG success
