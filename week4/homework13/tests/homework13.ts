@@ -10,24 +10,9 @@ export function sleep(ms: number) {
 }
 
 describe("homework13", () => {
-  // Configure the client to use the local cluster.
-  /*
-  anchor.setProvider(anchor.AnchorProvider.env());
-  const provider = anchor.AnchorProvider.local();
-  */
-  //anchor.setProvider(anchor.AnchorProvider.local());
-  const PROGRAM_ID = "GovAH137uoY4ifyfTNQjesKNJKo55tMF435dBfwZ22DG";
-  const oldProvider = anchor.AnchorProvider.env();
-
-  const devnetURL = "https://api.devnet.solana.com";
-  const localnetURL = "http://localhost:8899";
-  const connection = new anchor.web3.Connection(localnetURL);
-  const provider = new anchor.AnchorProvider(
-    connection,
-    oldProvider.wallet,
-    oldProvider.opts
-  );
-  const program = new Program(IDL, PROGRAM_ID, provider);
+  const provider = anchor.AnchorProvider.env();
+  anchor.setProvider(provider);
+  const program = anchor.workspace.Homework13 as Program<Homework13>;
 
   it("Is initialized!", async () => {
     const balanceStructKeypair = Keypair.generate();
@@ -45,7 +30,7 @@ describe("homework13", () => {
 
       console.log("Your transaction signature:", tx);
 
-      await sleep(20000); // not work then take higer value
+      // await sleep(20000); // not work then take higer value
 
       const balancesStructAccount = await program.account.balanceStruct.fetch(
         balanceStructKeypair.publicKey

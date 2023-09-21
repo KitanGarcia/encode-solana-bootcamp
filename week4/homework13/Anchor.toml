@@ -11,8 +11,8 @@ homework13 = "GovAH137uoY4ifyfTNQjesKNJKo55tMF435dBfwZ22DG"
 url = "https://api.apr.dev"
 
 [provider]
-cluster = "Localnet"
-#cluster = "devnet"
+#cluster = "Localnet"
+cluster = "devnet"
 wallet = "/home/kitan/.config/solana/id.json"
 
 [scripts]
