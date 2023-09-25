@@ -5,10 +5,10 @@ use anchor_lang::solana_program::hash::Hash;
 use self::Hand::*;
 use self::HandResult::*;
 
-declare_id!("5521eQoUE17iVGZXCwwGApaF6qExq2hkYVviETpfaXQE");
+declare_id!("2J6MMLbHz4M3ZPvtZAqZrhA5AJn3WL68D9QdwXRXga2L");
 
 #[program]
-mod example2 {
+pub mod example2_rps {
     use super::*;
 
     // Creates an account for the game

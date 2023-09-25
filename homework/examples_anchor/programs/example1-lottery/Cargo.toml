@@ -1,12 +1,12 @@
 [package]
-name = "example1"
+name = "example1-lottery"
 version = "0.1.0"
 description = "Created with Anchor"
-edition = "2018"
+edition = "2021"
 
 [lib]
 crate-type = ["cdylib", "lib"]
-name = "example1"
+name = "example1_lottery"
 
 [features]
 no-entrypoint = []
@@ -16,5 +16,4 @@ cpi = ["no-entrypoint"]
 default = []
 
 [dependencies]
-anchor-lang = "0.24.2"
-
+anchor-lang = "0.28.0"

@@ -1,9 +1,9 @@
 use anchor_lang::prelude::*;
 
-declare_id!("EnNAUhQEdDNtNszfguvK5RSkSLDStPLtUqeLpbjayoNq");
+declare_id!("8nzsmfzo6591JyTajkpxfGvL8yzFtCuBqkSa14G627Jv");
 
 #[program]
-mod example1 {
+mod example1_lottery {
     use super::*;       
 
     // Creates an account for the lottery
@@ -73,7 +73,13 @@ mod example1 {
         let recipient: &mut AccountInfo =  &mut ctx.accounts.winner;        
 
         // Get total money stored under original lottery account
-        let balance: u64 = lottery.to_account_info().lamports();                      
+        let mut balance: u64 = lottery.to_account_info().lamports();
+        msg!("Balance: {}", balance);
+
+        // Pay out 90% of balance
+        // balance = balance.checked_mul(0.9);
+        balance = balance * 10 / 9; // .floor()???
+        msg!("Balance * .90: {}", balance);
             
         **lottery.to_account_info().try_borrow_mut_lamports()? -= balance;
         **recipient.to_account_info().try_borrow_mut_lamports()? += balance; 

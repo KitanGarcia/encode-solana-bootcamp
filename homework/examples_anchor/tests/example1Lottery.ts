@@ -1,7 +1,7 @@
 import assert from "assert";
 import { expect } from "chai";
 import * as anchor from "@project-serum/anchor";
-import { Example1 } from "../target/types/example1";
+import { Example1Lottery } from "../target/types/example1_lottery";
 const { SystemProgram } = anchor.web3;
 
 describe("Tests for example1-lottery", async () => {
@@ -18,8 +18,16 @@ describe("Tests for example1-lottery", async () => {
   const skintPlayer3 = anchor.web3.Keypair.generate();
   const oracle = anchor.web3.Keypair.generate();
 
+  console.log("lottery", lottery.publicKey.toString());
+  console.log("lottery_admin", lottery_admin.publicKey.toString());
+  console.log("player1", player1.publicKey.toString());
+  console.log("player2", player2.publicKey.toString());
+  console.log("skintPlayer3", skintPlayer3.publicKey.toString());
+  console.log("oracle", oracle.publicKey.toString());
+
   // Get program IDL for rock-paper-scissor
-  const program = anchor.workspace.Example1 as anchor.Program<Example1>;
+  const program = anchor.workspace
+    .Example1Lottery as anchor.Program<Example1Lottery>;
 
   before(async () => {
     // Top up all acounts that will need lamports for account creation
